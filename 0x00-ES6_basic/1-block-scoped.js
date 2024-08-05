@@ -4,6 +4,7 @@ export default function taskBlock(trueOrFalse) {
 
   // to avoid the assigning but nit used error
   if (trueOrFalse) {
+    // No operation
   }
   return [task, task2];
 }
