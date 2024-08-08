@@ -1,5 +1,5 @@
 export default class HolbertonCourse {
-  constructor (name, length, students) {
+  constructor(name, length, students) {
     if (typeof name === 'string') {
       this._name = name;
     } else {
