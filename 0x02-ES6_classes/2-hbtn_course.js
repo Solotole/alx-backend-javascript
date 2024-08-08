@@ -10,11 +10,11 @@ export default class HolbertonCourse {
     } else {
       throw new TypeError('Length must be a number');
     }
-    for (const value in students) {
-      if (typeof students[value] !== 'string') {
-        throw new TypeError('Array contents must be strings');
-      }
-    }
+    // for (const value in students) {
+    // if (typeof students[value] !== 'string') {
+    // throw new TypeError('Array contents must be strings');
+    // }
+    // }
     this._students = students;
   }
 
@@ -47,11 +47,11 @@ export default class HolbertonCourse {
   }
 
   set students(students) {
-    for (const value in students) {
-      if (typeof students[value] !== 'string') {
-        throw new TypeError('Array contents must be strings');
-      }
-    }
+    // for (const value in students) {
+    // if (typeof students[value] !== 'string') {
+    // throw new TypeError('Array contents must be strings');
+    // }
+    // }
     this._students = students;
   }
 }
