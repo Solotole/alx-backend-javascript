@@ -1,5 +1,5 @@
 function displayMessage(string) {
-  const newLine = '\n';
-  process.stdout.write(`${string}${newLine}`);
+  // const newLine = '\n';
+  console.log(`${string}`);
 }
 module.exports = displayMessage;
