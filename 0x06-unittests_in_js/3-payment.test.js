@@ -11,7 +11,7 @@ describe('sendPaymentRequestToApi', () => {
 
   afterEach(() => {
     spy.restore();
-  ));
+  });
 
   it('should call Utils.calculateNumber with SUM, 100, 20', () => {
     sendPaymentRequestToApi(100, 20);
