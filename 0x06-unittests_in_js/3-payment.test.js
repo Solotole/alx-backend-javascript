@@ -2,6 +2,7 @@ const sinon = require('sinon');
 const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./3-payment');
 const { expect } = require('chai');
+// import sendPaymentRequestToApi from './3-payment.js';
 
 describe('sendPaymentRequestToApi', () => {
   let spy;
