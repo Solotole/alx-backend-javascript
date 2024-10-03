@@ -51,7 +51,7 @@ describe('calculateNumber', () => {
   });
 
   it('should return 0 when a = 1 and b = 3 and type is "DIVIDE"', () => {
-    assert.strictEqual(calculateNumber("SUM", 1, 3), 0);
+    assert.strictEqual(calculateNumber("DIVIDE", 1, 3), 0);
   });
 
   it('should return 2 when a = 8 and b = 3.7 and type is "DIVIDE" with b float', () => {
