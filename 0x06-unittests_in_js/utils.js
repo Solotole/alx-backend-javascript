@@ -1,12 +1,21 @@
-const sinon = require('sinon');
-const Utils = require('./utils');
-const sendPaymentRequestToApi = require('./3-payment');
+const Utils = {
+  calculateNumber: (type, a, b) => {
+    const first = Math.round(a);
+    const second = Math.round(b);
+    let result = 0;
+    if (type === "SUM") {
+      result = first + second;
+    } else if (type === "SUBTRACT") {
+      result = first - second;
+    } else if (type === "DIVIDE") {
+      if (second === 0) {
+        return "Error";
+      } else if (second !== 0) {
+        result = first / second;
+      }
+    }
+    return result;
+  }
+}
 
-describe('sendPaymentRequestToApi', function() {
-  it('should call Utils.calculateNumber with SUM correctly', function() {
-    const calculateNumberSpy = sinon.spy(Utils, 'calculateNumber');
-    sendPaymentRequestToApi(100, 20);
-    sinon.assert.calledWithExactly(calculateNumberSpy, 'SUM', 100, 20);
-    calculateNumberSpy.restore();
-  });
-});
+module.exports = Utils;
