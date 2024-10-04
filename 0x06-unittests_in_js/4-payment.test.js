@@ -1,27 +1,29 @@
 const sinon = require('sinon');
-const expect = require('chai').expect;
+const Utils = require('./utils');
 const sendPaymentRequestToApi = require('./4-payment');
-const { calculateNumber } = require('./utils');
+const { expect } = require('chai');
 
 describe('sendPaymentRequestToApi', () => {
-  let calculateNumberStub, consoleLogStub;
+  let stub, consoleSpy;
 
   beforeEach(() => {
-    calculateNumberStub = sinon.stub(calculateNumber).returns(10);
-    consoleLogStub = sinon.stub(console, 'log');
+    stub = sinon.stub(Utils, 'calculateNumber').returns(10);
+    consoleSpy = sinon.spy(console, 'log');
   });
 
   afterEach(() => {
-    calculateNumberStub.restore();
-    consoleLogStub.restore();
+    stub.restore();
+    consoleSpy.restore();
   });
 
-  it('should call calculateNumber with correct arguments and log the correct message', () => {
+  it('should call Utils.calculateNumber with "SUM", 100, 20 and return 10', () => {
     sendPaymentRequestToApi(100, 20);
+    expect(stub.calledOnce).to.be.true;
+    expect(stub.calledWith('SUM', 100, 20)).to.be.true;
+  });
 
-    expect(calculateNumberStub.calledOnce).to.be.true;
-    expect(calculateNumberStub.calledWith('SUM', 100, 20)).to.be.true;
-    expect(consoleLogStub.calledOnce).to.be.true;
-    expect(consoleLogStub.calledWith('The total is: 10')).to.be.true;
+  it('should log "The total is: 10" when inputs are 100 and 20', () => {
+    sendPaymentRequestToApi(100, 20);
+    expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
   });
 });
